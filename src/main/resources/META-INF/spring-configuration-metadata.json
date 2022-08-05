@@ -1,0 +1,66 @@
+{
+    "groups": [
+        {
+            "name": "env",
+            "type": "top.imwonder.mcauth.config.ApplicationConfig",
+            "sourceType": "top.imwonder.mcauth.config.ApplicationConfig"
+        }
+    ],
+    "properties": [
+        {
+            "name": "env.host",
+            "type": "java.lang.String",
+            "sourceType": "top.imwonder.mcauth.config.ApplicationConfig",
+            "description": "Domain or Hostname of this Server."
+        },
+        {
+            "name": "env.session-limit",
+            "type": "java.lang.Long",
+            "defaultValue": 300,
+            "sourceType": "top.imwonder.mcauth.config.ApplicationConfig",
+            "description": "The maximum duration of a session, in seconds."
+        },
+        {
+            "name": "env.access-token-limit",
+            "type": "java.lang.Long",
+            "defaultValue": 86400,
+            "sourceType": "top.imwonder.mcauth.config.ApplicationConfig",
+            "description": "Token expiration time, in seconds. If the token fails, it will not be able to access the API normally, but it will be used to obtain a new token."
+        },
+        {
+            "name": "env.access-token-keep",
+            "type": "java.lang.Long",
+            "defaultValue": 432000,
+            "sourceType": "top.imwonder.mcauth.config.ApplicationConfig",
+            "description": "Token retention time, in seconds. After the token is expired and before the token is completely deleted, the previous token can be used to exchange for a new available token without re verifying the account password."
+        },
+        {
+            "name": "env.client-token-limit",
+            "type": "java.lang.Long",
+            "defaultValue": 864000,
+            "sourceType": "top.imwonder.mcauth.config.ApplicationConfig",
+            "description": "Valid time of client token, in seconds. After the expiration of the client token, the user will be forced to verify the account password to ensure the security. Whether access-token is expired or not."
+        },
+        {
+            "name": "env.resource-dir",
+            "type": "java.lang.String",
+            "sourceType": "top.imwonder.mcauth.config.ApplicationConfig",
+            "description": "Directory where user textures and server runtime files are stored"
+        }
+    ],
+    "hints": [
+        {
+            "name": "env.session-limit",
+            "values": [
+                {
+                    "value": 300,
+                    "description": "5 min"
+                },
+                {
+                    "value": 600,
+                    "description": "10 min"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,17 @@
+version: 5.0.18.2.45204
+lastversion: 4.9.8052.37186
+ReleaseTime: 2022.1.18
+Description: "更新测试"
+UpdateInformation: "更新信息"
+# 完整的客户端包Url
+CompletePackageUrl: 
+    "minecraft": "https://cdn.410wl.cn/api/1642441198-321.zip"
+    "NsisoLauncher": "https://cdn.410wl.cn/api/1642441208-661.zip"
+# 更新客户端包的Url
+UpdatedDirUrl: 
+    ".minecraft": "https://cdn.410wl.cn/api/1642509117-995.zip"
+    "NsisoLauncher": "https://cdn.410wl.cn/api/1642512161-755.zip"
+# 需要删除的路径
+DeleteDirList: 
+ - "/.minecraft/config/Test1.txt"
+ - "/.minecraft/config/Test2.txt"

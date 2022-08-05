@@ -1,0 +1,86 @@
+env:
+    host: 0.0.0.0
+    session-limit: 300
+    access-token-limit: 30000
+    access-token-keep: 60000
+    client-token-limit: 70000
+    resource-dir: wonderTmp
+
+logging:
+    level:
+        # web: DEBUG
+        "[top-imwonder]": INFO
+        "[org.springframework]": WARN
+
+management:
+    endpoints:
+        web:
+            exposure:
+                include: "*"
+
+server:
+    error:
+        path: /error
+    max-http-header-size: 16KB
+    servlet:
+        session:
+            tracking-modes: cookie
+
+spring:
+    datasource:
+        url: jdbc:mysql://127.0.0.1:3306/minecraft
+        username: root
+        password: 430525
+    jackson:
+        date-format: yyyy-MM-dd HH:mm:ss
+        locale: zh
+        time-zone: GMT+8
+        serialization:
+            write-dates-as-timestamps: false
+            fail-on-empty-beans: true
+        deserialization:
+            fail-on-unknown-properties: false
+        mapper:
+            use-getters-as-setters: true
+        parser:
+            allow-single-quotes: true
+        default-property-inclusion: non-null
+    main:
+        allow-bean-definition-overriding: true
+    messages:
+        basename: i18n.messages
+    mvc:
+        throw-exception-if-no-handler-found: true
+        view:
+            prefix: /
+            suffix: .html
+    thymeleaf:
+        cache: false
+        check-template: true
+        check-template-location: true
+        enabled: true
+        encoding: UTF-8
+        excluded-view-names: json
+        mode: HTML
+        prefix: classpath:/templates/
+        suffix: .html
+        servlet:
+            content-type: text/html
+    web:
+        resources:
+            add-mappings: false
+    mail:
+        username: nia@rcraft.cn
+        password: 5xdj6JcuSg
+        host: smtp.ym.163.com
+        port: 25
+        properties:
+           mail:
+             transport:
+                protocol: smtp
+             smtp:
+               socketFactory:
+                class: javax.net.ssl.SSLSocketFactory
+               starttls:
+                 enable: true
+
