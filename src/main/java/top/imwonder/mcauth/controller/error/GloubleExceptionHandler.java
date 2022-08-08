@@ -46,7 +46,7 @@ public class GloubleExceptionHandler implements AccessDeniedHandler {
     @ExceptionHandler(NullPointerException.class)
     public ErrorBody nullPointerExceptionHandler(HttpServletResponse res, NullPointerException ex) {
         res.setStatus(500);
-        WonderMcException exception = WonderMcException.otherWonderMcException(HttpStatus.NOT_FOUND, "当前用户未注册！");
+        WonderMcException exception = WonderMcException.otherWonderMcException(HttpStatus.NOT_FOUND, "信息已过期，请重新登录！(或未注册)");
         return exception.getErrorBody();
     }
     @ResponseBody

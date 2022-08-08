@@ -36,12 +36,13 @@ public class CommonController {
         return apiMeta;
     }
 
-    @PostMapping("/profiles/minecraft")
-    public List<ProfileInfo> queryProfiles(@RequestBody List<String> profileNames) {
-        if (profileNames.size() > 50) {
-            throw WonderMcException.illegalArgumentException("errorsize");
-        }
-        return profileInfoService.loadProfilesByName(false, false, profileNames.toArray(new String[0]));
+    @GetMapping("/api/users/profiles/minecraft/{username}")
+    public List<ProfileInfo> queryProfiles(@PathVariable("username") String username) {
+//        if (profileNames.size() > 50) {
+//            throw WonderMcException.illegalArgumentException("errorsize");
+//        }
+//        return profileInfoService.loadProfilesByName(false, false, profileNames.toArray(new String[0]));
+        return profileInfoService.loadProfilesByName(false, false, username);
     }
 
     @PutMapping("/user/profile/{uuid}/{textureType}")

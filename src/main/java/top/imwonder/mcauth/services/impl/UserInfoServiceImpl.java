@@ -17,6 +17,8 @@ import top.imwonder.mcauth.pojo.UserInfo;
 import top.imwonder.mcauth.services.ProfileInfoService;
 import top.imwonder.mcauth.services.UserInfoService;
 
+import java.util.Objects;
+
 @Service
 public class UserInfoServiceImpl implements UserInfoService {
 
@@ -52,7 +54,7 @@ public class UserInfoServiceImpl implements UserInfoService {
         if (type == LoginType.PROFILE_NAME) {
             return LoginType.PROFILE_NAME;
         }
-        if (user.getEmail().equals(username)) {
+        if (Objects.equals(user.getEmail(), username)) {
             return LoginType.EMAIL;
         }
         return LoginType.USERNAME;
