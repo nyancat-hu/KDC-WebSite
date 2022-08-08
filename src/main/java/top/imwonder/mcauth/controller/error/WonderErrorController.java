@@ -5,6 +5,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -19,5 +20,9 @@ public class WonderErrorController{
         model.addAttribute("msg", msg);
         String uri = (String) req.getAttribute("javax.servlet.forward.request_uri");
         return uri.contains("api") ? "json" : "error";
+    }
+    @GetMapping("/")
+    public String index(){
+        return "index";
     }
 }

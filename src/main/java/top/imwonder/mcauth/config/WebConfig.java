@@ -26,7 +26,8 @@ public class WebConfig implements WebMvcConfigurer {
     // 处理静态资源
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/assets/**").addResourceLocations("classpath:/static/assets/");
+        registry.addResourceHandler("/**").addResourceLocations("classpath:/static/");
+//        registry.addResourceHandler("/assets/**").addResourceLocations("classpath:/static/assets/");
         registry.addResourceHandler("/robots.txt").addResourceLocations("classpath:/static/assets/robots.txt");
         registry.addResourceHandler("/favicon.ico").addResourceLocations("classpath:/static/assets/img/favicon.ico");
         registry.addResourceHandler("/sitemap.xml").addResourceLocations("file:./sitemap.xml");
@@ -41,8 +42,7 @@ public class WebConfig implements WebMvcConfigurer {
     // 视图解析器
     @Bean
     public ViewResolver beanNameViewResolver() {
-        BeanNameViewResolver resolver = new BeanNameViewResolver();
-        return resolver;
+        return new BeanNameViewResolver();
     }
 
     // json视图
