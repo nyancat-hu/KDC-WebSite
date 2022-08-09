@@ -1,6 +1,6 @@
 /*
- * @Author: qh 
- * @Date: 2020-05-02 16:27:18 
+ * @Author: qh
+ * @Date: 2020-05-02 16:27:18
  * @Last Modified by: Wonder2019
  * @Last Modified time: 2020-08-24 09:58:24
  */
@@ -35,6 +35,8 @@ public abstract class AbstractDAO<T> {
     protected String loadOneSQL;
     protected String loadMoreSQL;
     protected String countBySql;
+    protected String countUserSql;
+    protected String deleteTokenSql;
 
     protected boolean insertPK = true;
 
@@ -90,7 +92,7 @@ public abstract class AbstractDAO<T> {
     }
 
     private void initDataMethod(HashMap<String, Method> settersMap, String[] columns, Method[] setters,
-            Method[] getters) {
+                                Method[] getters) {
         try {
             for (int i = 0; i < columns.length; i++) {
                 String cccn = StringUtil.toHumpCase(columns[i], "_", true, true);
@@ -117,6 +119,8 @@ public abstract class AbstractDAO<T> {
         buildLoadOneSQL();
         buildLoadMoreSQL();
         buildCountBySQL();
+        buildCountUserSQL();
+        buildDeleteTokenSQL();
     }
 
     protected void buildInsertSQL() {
@@ -198,6 +202,14 @@ public abstract class AbstractDAO<T> {
 
     protected void buildCountBySQL() {
         countBySql = String.format("select count(%s) from %s %s group by %s", "%s", tableName, "%s", "%s");
+    }
+
+    protected void buildCountUserSQL() {
+        countUserSql = String.format("select count(w_uid) from %s where w_uid = \"%s\"", tableName, "%s");
+    }
+
+    protected void buildDeleteTokenSQL() {
+        deleteTokenSql = String.format("delete from %s where w_uid=\"%s\" order by %s limit 1", tableName, "%s", "%s");
     }
 
     protected void buildWhereClause(StringBuffer buffer) {
@@ -287,6 +299,14 @@ public abstract class AbstractDAO<T> {
         } catch (Exception e) {
             return 0;
         }
+    }
+
+    public int countUser(String w_uid, Object... params){
+        return jt.queryForObject(String.format(countUserSql, w_uid), Integer.class, params);
+    }
+
+    public int deleteToken(String w_uid, String column){
+        return jt.update(String.format(deleteTokenSql, w_uid, column));
     }
 
     protected Object[] getInsertParamValues(T t) {

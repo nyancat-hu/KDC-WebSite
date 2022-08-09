@@ -67,6 +67,11 @@ public class TokenManager implements TokenService {
 
     @Override
     public Token createToken(String uid, String pid, String clientToken) {
+        // 添加token判断
+        while (tokenDAO.countUser(uid) > 3) {
+            tokenDAO.deleteToken(uid, "w_create_time");
+        }
+
         Token token = new Token();
         token.setCreateTime(new Date());
         token.setAccessTime(new Date());
