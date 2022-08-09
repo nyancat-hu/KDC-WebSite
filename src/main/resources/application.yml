@@ -28,7 +28,7 @@ server:
 
 spring:
     datasource:
-        url: jdbc:mysql://topview102:3306/world
+        url: jdbc:mysql://127.0.0.1:3306/minecraft
         username: root
         password: 430525
     jackson:
