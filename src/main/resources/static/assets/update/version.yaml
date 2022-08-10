@@ -3,16 +3,6 @@ lastversion: 5.0.18.2.45204
 ReleaseTime: 2022.08.09
 Description: "客户端更新测试"
 UpdateInformation: "这是一条更新信息，欢迎您体验口袋村实时更新功能\n口袋村的后续更新都会采用这种方式进行更新，更多新功能新玩法会迅速上线\n敬请期待"
-CompletePackageUrl:
-  ".minecraft": "https://cloud189-shzh-person.oos-gdsz.ctyunapi.cn/PERSONCLOUD/c543b0f1-3e9d-41da-a9b3-cb780897f538.zip?x-amz-CLIENTTYPEIN=UNKNOWN&AWSAccessKeyId=18bd696e8df5d7a48893&x-amz-userLevel=0&x-amz-UID=33278415&x-amz-APPID=828221&response-content-disposition=attachment%3Bfilename%3D%22.minecraft.zip%22%3Bfilename*%3DUTF-8%27%27.minecraft.zip&x-amz-CLIENTNETWORK=UNKNOWN&x-amz-CLOUDTYPEIN=PERSON&x-amz-limit=rate%3D51200%2Cconcurrency%3D12&Signature=aD7UcSB74b49VSRWJXGD/6wIR3U%3D&x-amz-SHID=123611231933&Expires=1660122268&x-amz-FSIZE=976303447&x-amz-UFID=11392117240267271"
-  "NsisoLauncher": "https://cdn.410wl.cn/api/1642441208-661.zip"
-  "X32Java": "https://cloud189-shzh-person.oos-gdsz.ctyunapi.cn/PERSONCLOUD/f3dadb09-88ed-47eb-ace0-e9471c504223.zip?x-amz-CLIENTTYPEIN=WEB&AWSAccessKeyId=18bd696e8df5d7a48893&x-amz-userLevel=0&x-amz-UID=373320699&response-content-disposition=attachment%3Bfilename%3D%22Jre_Win32.zip%22&x-amz-CLIENTNETWORK=UNKNOWN&x-amz-CLOUDTYPEIN=PERSON&x-amz-limit=rate%3D51200%2Cconcurrency%3D12&Signature=zlY/91tjumQH5rPrkTxmPNu0Ehc%3D&x-amz-SHID=123391227988&Expires=1660122533&x-amz-FSIZE=38883156&x-amz-UFID=11392117240269028"
-  "X64Java": "https://cloud189-shzh-person.oos-gdsz.ctyunapi.cn/PERSONCLOUD/21919692-e844-488c-848e-4b1d8488791d.zip?x-amz-CLIENTTYPEIN=WEB&AWSAccessKeyId=18bd696e8df5d7a48893&x-amz-userLevel=0&x-amz-UID=373320699&response-content-disposition=attachment%3Bfilename%3D%22Jre_Win64.zip%22&x-amz-CLIENTNETWORK=UNKNOWN&x-amz-CLOUDTYPEIN=PERSON&x-amz-limit=rate%3D51200%2Cconcurrency%3D12&Signature=gsQ3hwRvqwcOv3kX4IXrxbm86rg%3D&x-amz-SHID=124741229383&Expires=1660122209&x-amz-FSIZE=40753916&x-amz-UFID=41397116817278957"
-  "armMacJava": "https://cloud189-shzh-person.oos-gdsz.ctyunapi.cn/PERSONCLOUD/6bc9d69f-5697-4135-8aea-72f7e34c36c0.zip?x-amz-CLIENTTYPEIN=WEB&AWSAccessKeyId=18bd696e8df5d7a48893&x-amz-userLevel=0&x-amz-UID=373320699&response-content-disposition=attachment%3Bfilename%3D%22Jre_MACarm.zip%22&x-amz-CLIENTNETWORK=UNKNOWN&x-amz-CLOUDTYPEIN=PERSON&x-amz-limit=rate%3D51200%2Cconcurrency%3D12&Signature=xQ8Q9AZELrFVHkTscrGJLcK2BPU%3D&x-amz-SHID=123511228777&Expires=1660122620&x-amz-FSIZE=41620043&x-amz-UFID=41392116817287699"
-  "x64MacJava": "https://cloud189-shzh-person.oos-gdsz.ctyunapi.cn/PERSONCLOUD/c57c335c-9596-42c3-8479-6411c941c3a1.zip?x-amz-CLIENTTYPEIN=WEB&AWSAccessKeyId=18bd696e8df5d7a48893&x-amz-userLevel=0&x-amz-UID=373320699&response-content-disposition=attachment%3Bfilename%3D%22Jre_MACx64.zip%22&x-amz-CLIENTNETWORK=UNKNOWN&x-amz-CLOUDTYPEIN=PERSON&x-amz-limit=rate%3D51200%2Cconcurrency%3D12&Signature=HI0hZHrXZo8xhbpls1wXRgi2bXo%3D&x-amz-SHID=123851228987&Expires=1660122532&x-amz-FSIZE=41939976&x-amz-UFID=31397116709470882"
-UpdatedDirUrl:
-  ".minecraft": "https://cdn.410wl.cn/api/1642509117-995.zip"
-  "NsisoLauncher": "http://52mcla.com:60000/static/assets/update/NsisoLauncher.zip"
 DeleteDirList:
 - "/.minecraft/config/itlt.cfg"
 - "/NsisoLauncher/Config/version.yaml"
