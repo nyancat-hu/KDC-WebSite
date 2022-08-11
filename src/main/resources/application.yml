@@ -29,6 +29,7 @@ server:
 spring:
     datasource:
         url: jdbc:mysql://127.0.0.1:3306/minecraft
+        #        url: jdbc:mysql://Topview102:3306/world
         username: root
         password: 430525
     jackson:
@@ -36,6 +37,8 @@ spring:
         locale: zh
         time-zone: GMT+8
         serialization:
+            indent_output: true
+            indent-output: true
             write-dates-as-timestamps: false
             fail-on-empty-beans: true
         deserialization:

@@ -13,9 +13,13 @@ import top.imwonder.mcauth.domain.Profile;
 import top.imwonder.mcauth.domain.Texture;
 import top.imwonder.mcauth.enumeration.TextureType;
 import top.imwonder.mcauth.pojo.TexturesInfo;
-import top.imwonder.mcauth.pojo.TexturesInfo.TextureMeta;
+import top.imwonder.mcauth.pojo.WebTexture;
 import top.imwonder.mcauth.services.TextureInfoService;
+import top.imwonder.mcauth.util.SkinAPIUtil;
 import top.imwonder.util.StringUtil;
+
+import java.nio.charset.StandardCharsets;
+import java.util.Base64;
 
 @Service
 public class TextureInfoServiceImpl implements TextureInfoService {
@@ -47,16 +51,10 @@ public class TextureInfoServiceImpl implements TextureInfoService {
         textures.setProfileId(profile.getId());
         textures.setProfileName(profile.getName());
         textures.setTimestamp(System.currentTimeMillis());
-        String skinId = profile.getSkinId();
-        String capeId = profile.getCapeId();
-        if (!StringUtil.isEmpty(skinId)) {
-            Texture texture = textureDAO.loadOneByPk(skinId);
-            TextureMeta tm = textures.addTexture(TexturesInfo.SKIN, textureUrl(texture.getHash()));
-            tm.addMetadata("model", texture.getType().getModel());
-        }
-        if (!StringUtil.isEmpty(capeId)) {
-            Texture texture = textureDAO.loadOneByPk(capeId);
-            textures.addTexture(TexturesInfo.CAPE, textureUrl(texture.getHash()));
+        try {
+            setTextures(textures, SkinAPIUtil.skinAPI(profile.getName(), profile.getUid()));
+        } catch (Exception e) {
+            return null;
         }
         return textures;
     }
@@ -64,14 +62,18 @@ public class TextureInfoServiceImpl implements TextureInfoService {
     @Override
     public String loadTexturesBase64OfProfile(Profile profile) {
         try {
-            return objectMapper.writeValueAsString(loadTexturesInfoOfProfile(profile));
+            TexturesInfo texturesInfo = loadTexturesInfoOfProfile(profile);
+            if(texturesInfo!=null) return Base64.getEncoder().encodeToString(objectMapper.writeValueAsString(texturesInfo).getBytes(StandardCharsets.UTF_8));
         } catch (JsonProcessingException e) {
-            return "";
+            e.printStackTrace();
         }
+        return "";
     }
 
-    private String textureUrl(String hash) {
-        return String.format("%s://%s/api/textures/%s", "https", config.getHost(), hash);
+    private void setTextures(TexturesInfo textures, String base64) throws JsonProcessingException {
+        TexturesInfo ti = objectMapper.readValue(SkinAPIUtil.decodeByJava8(base64), TexturesInfo.class);
+        textures.addTexture(TexturesInfo.SKIN, ti.getTextureValue(TexturesInfo.SKIN));
+        textures.addTexture(TexturesInfo.CAPE, ti.getTextureValue(TexturesInfo.CAPE));
     }
 
 }

@@ -1,6 +1,7 @@
 package top.imwonder.mcauth.pojo;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -16,6 +17,14 @@ public class ProfileInfo {
 
     public String getId() {
         return id;
+    }
+
+    public List<Property> getProperties() {
+        return properties;
+    }
+
+    public void setProperties(List<Property> properties) {
+        this.properties = properties;
     }
 
     public void setId(String id) {
@@ -34,9 +43,7 @@ public class ProfileInfo {
         if (this.properties == null) {
             this.properties = new ArrayList<>();
         }
-        for (Property property : properties) {
-            this.properties.add(property);
-        }
+        this.properties.addAll(Arrays.asList(properties));
     }
 
     public void addProperty(String name, String value, boolean isSign) {

@@ -1,83 +1,81 @@
 package top.imwonder.mcauth.pojo;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class TexturesInfo {
+public class TexturesInfo{
+	public static final String SKIN = "SKIN";
+	public static final String CAPE = "CAPE";
 
-    public static final String SKIN = "SKIN";
-    public static final String CAPE = "CAPE";
+	@JsonProperty("timestamp")
+	private Long timestamp;
 
-    private long timestamp;
+	@JsonProperty("profileId")
+	private String profileId;
 
-    private String profileId;
+	@JsonProperty("profileName")
+	private String profileName;
 
-    private String profileName;
+	@JsonProperty("textures")
+	private Textures textures;
 
-    private Map<String, TextureMeta> textures;
+	public void setProfileName(String profileName){
+		this.profileName = profileName;
+	}
 
-    public TexturesInfo() {
-        this.textures = new HashMap<>();
-    }
+	public String getProfileName(){
+		return profileName;
+	}
 
-    public long getTimestamp() {
-        return timestamp;
-    }
+	public void setTextures(Textures textures){ this.textures = textures;
+	}
 
-    public void setTimestamp(long timestamp) {
-        this.timestamp = timestamp;
-    }
+	public Textures getTextures(){
+		return textures;
+	}
 
-    public String getProfileId() {
-        return profileId;
-    }
+	public void setProfileId(String profileId){
+		this.profileId = profileId;
+	}
 
-    public void setProfileId(String profileId) {
-        this.profileId = profileId;
-    }
+	public String getProfileId(){
+		return profileId;
+	}
 
-    public String getProfileName() {
-        return profileName;
-    }
+	public void setTimestamp(Long timestamp){
+		this.timestamp = timestamp;
+	}
 
-    public void setProfileName(String profileName) {
-        this.profileName = profileName;
-    }
+	public Long getTimestamp(){
+		return timestamp;
+	}
 
-    public TextureMeta addTexture(String type, String url) {
-        TextureMeta texture = new TextureMeta();
-        texture.url = url;
-
-        this.textures.put(type, texture);
-        return texture;
-
-    }
-
-    public class TextureMeta {
-
-        private String url;
-
-        private Map<String, String> metadata;
-
-        public String getUrl() {
-            return url;
-        }
-
-        public Map<String, String> getMetadata() {
-            return metadata;
-        }
-
-        public TextureMeta addMetadata(String key, String value) {
-            if (this.metadata == null) {
-                this.metadata = new HashMap<>();
-            }
-            this.metadata.put(key, value);
-            return this;
-        }
-
-    }
-
+	public void addTexture(String type, String url) {
+		if(textures == null) textures = new Textures(new SKIN(), new CAPE());
+		switch(type){
+			case TexturesInfo.SKIN:
+				textures.setSKIN(new SKIN(url));
+				break;
+			case TexturesInfo.CAPE:
+				textures.setCAPE(new CAPE(url));
+				break;
+			default:
+				break;
+		}
+	}
+	public String getTextureValue(String key){
+		try{
+			switch(key){
+				case TexturesInfo.SKIN:
+					return textures.getSKIN().getUrl();
+				case TexturesInfo.CAPE:
+					return textures.getCAPE().getUrl();
+				default:
+					return "";
+			}
+		}catch (NullPointerException e){
+			return "";
+		}
+	}
 }

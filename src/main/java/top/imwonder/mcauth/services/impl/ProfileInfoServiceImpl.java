@@ -66,7 +66,7 @@ public class ProfileInfoServiceImpl implements ProfileInfoService {
         rst.setId(profile.getId());
         rst.setName(profile.getName());
         if (hasProps) {
-            rst.addProperty(Property.UPLOADABLE_TEXTURES, "skin,cape", isSign);
+//            rst.addProperty(Property.UPLOADABLE_TEXTURES, "skin,cape", isSign);
             rst.addProperty(Property.TEXTURES, textureInfoService.loadTexturesBase64OfProfile(profile), isSign);
         }
         return rst;

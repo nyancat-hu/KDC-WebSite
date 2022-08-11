@@ -4,15 +4,15 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class DownloadBean {
-    private String url;
+    private String link;
     private String auth;
 
-    public String getUrl() {
-        return url;
+    public String getLink() {
+        return link;
     }
 
-    public void setUrl(String url) {
-        this.url = url;
+    public void setLink(String link) {
+        this.link = link;
     }
 
     public String getAuth() {
