@@ -1,7 +1,10 @@
 package top.imwonder.mcauth.pojo;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.apache.commons.lang3.StringUtils;
+
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class TexturesInfo{
@@ -68,14 +71,19 @@ public class TexturesInfo{
 		try{
 			switch(key){
 				case TexturesInfo.SKIN:
-					return textures.getSKIN().getUrl();
+					String url = textures.getSKIN().getUrl();
+					return StringUtils.isEmpty(url) ?
+							"http://textures.minecraft.net/texture/7868f0fa8378776ac1575e6acbdd278110b0d91cbb9ff950b8ca010474652103" : url;
 				case TexturesInfo.CAPE:
-					return textures.getCAPE().getUrl();
+					String url2 = textures.getCAPE().getUrl();
+					return StringUtils.isEmpty(url2) ?
+							"http://textures.minecraft.net/texture/2340c0e03dd24a11b15a8b33c2a7e9e32abb2051b2481d0ba7defd635ca7a933" : url2;
 				default:
-					return "";
+					return "http://textures.minecraft.net/texture/2340c0e03dd24a11b15a8b33c2a7e9e32abb2051b2481d0ba7defd635ca7a933";
 			}
 		}catch (NullPointerException e){
-			return "";
+			if(key.equals(TexturesInfo.SKIN))return "http://textures.minecraft.net/texture/7868f0fa8378776ac1575e6acbdd278110b0d91cbb9ff950b8ca010474652103";
+			else return "http://textures.minecraft.net/texture/2340c0e03dd24a11b15a8b33c2a7e9e32abb2051b2481d0ba7defd635ca7a933";
 		}
 	}
 }

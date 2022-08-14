@@ -1,13 +1,13 @@
 package top.imwonder.mcauth.pojo;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 
 import java.util.List;
 
-
+@JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class WebTexture {
-
     private String id;
     private String name;
     private List<WebTextureEntity> properties;
@@ -39,6 +39,15 @@ public class WebTexture {
     public static class WebTextureEntity {
         private String name;
         private String value;
+        private String signature;
+
+        public String getSignature() {
+            return signature;
+        }
+
+        public void setSignature(String signature) {
+            this.signature = signature;
+        }
 
         public String getName() {
             return name;

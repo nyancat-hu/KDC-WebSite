@@ -20,8 +20,8 @@ public class HelpController {
         return "{\"code\": 200, \"msg\": \"Successful!\"}";
     }
 
-    @GetMapping("/update/{FileName}")
-    public DownloadBean getFileUrl(@PathVariable("FileName")String FileName) {
+    @GetMapping("/update/{FileName}/{osEnv}")
+    public DownloadBean getFileUrl(@PathVariable("FileName")String FileName,@PathVariable("osEnv")String osEnv) {
         final DownloadBean downloadBean = new DownloadBean();
         downloadBean.setLink(String.format("http://117.78.1.88/source/home:jhu/KDC-resource/%s", FileName));
         // 返回登录信息的转码

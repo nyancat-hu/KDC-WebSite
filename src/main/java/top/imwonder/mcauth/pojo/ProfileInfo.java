@@ -46,15 +46,15 @@ public class ProfileInfo {
         this.properties.addAll(Arrays.asList(properties));
     }
 
-    public void addProperty(String name, String value, boolean isSign) {
+    public void addProperty(String name, String[] value, boolean isSign) {
         if (this.properties == null) {
             this.properties = new ArrayList<>();
         }
         Property property = new Property();
         property.setName(name);
-        property.setValue(value);
+        property.setValue(value[0]);
         if (isSign) {
-            // property.setSignature(signature);
+            property.setSignature(value[1]);
         }
         this.properties.add(property);
     }

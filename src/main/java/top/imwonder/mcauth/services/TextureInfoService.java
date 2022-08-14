@@ -15,5 +15,5 @@ public interface TextureInfoService {
 
     TexturesInfo loadTexturesInfoOfProfile(Profile profile);
 
-    String loadTexturesBase64OfProfile(Profile profile);
+    String[] loadTexturesBase64OfProfile(Profile profile);
 }

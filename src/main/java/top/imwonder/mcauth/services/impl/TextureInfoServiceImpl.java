@@ -33,6 +33,8 @@ public class TextureInfoServiceImpl implements TextureInfoService {
     @Autowired
     private ObjectMapper objectMapper;
 
+    StringBuilder signature =  new StringBuilder("");;
+
     @Override
     public Texture upload(MultipartFile texture, String pid, TextureType type) {
         // TODO Auto-generated method stub
@@ -52,7 +54,7 @@ public class TextureInfoServiceImpl implements TextureInfoService {
         textures.setProfileName(profile.getName());
         textures.setTimestamp(System.currentTimeMillis());
         try {
-            setTextures(textures, SkinAPIUtil.skinAPI(profile.getName(), profile.getUid()));
+            setTextures(textures, SkinAPIUtil.skinAPI(profile.getName(), profile.getUid(), signature));
         } catch (Exception e) {
             return null;
         }
@@ -60,14 +62,14 @@ public class TextureInfoServiceImpl implements TextureInfoService {
     }
 
     @Override
-    public String loadTexturesBase64OfProfile(Profile profile) {
+    public String[] loadTexturesBase64OfProfile(Profile profile) {
         try {
             TexturesInfo texturesInfo = loadTexturesInfoOfProfile(profile);
-            if(texturesInfo!=null) return Base64.getEncoder().encodeToString(objectMapper.writeValueAsString(texturesInfo).getBytes(StandardCharsets.UTF_8));
+            if(texturesInfo!=null) return new String[]{Base64.getEncoder().encodeToString(objectMapper.writeValueAsString(texturesInfo).getBytes(StandardCharsets.UTF_8)), String.valueOf(signature)};
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         }
-        return "";
+        return new String[]{"", ""};
     }
 
     private void setTextures(TexturesInfo textures, String base64) throws JsonProcessingException {

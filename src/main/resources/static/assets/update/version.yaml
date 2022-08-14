@@ -1,8 +1,0 @@
-version: 5.2
-lastversion: 5.0.18.2.45204
-ReleaseTime: 2022.08.09
-Description: "客户端更新测试"
-UpdateInformation: "这是一条更新信息，欢迎您体验口袋村实时更新功能\n口袋村的后续更新都会采用这种方式进行更新，更多新功能新玩法会迅速上线\n敬请期待"
-DeleteDirList:
-- "/.minecraft/config/itlt.cfg"
-- "/NsisoLauncher/Config/version.yaml"

@@ -21,22 +21,26 @@ import java.nio.charset.StandardCharsets;
  */
 
 public class SkinAPIUtil {
-
     public static ObjectMapper objectMapper = new ObjectMapper();
 
-    public static String skinAPI(String username, String pirateUUid) throws JsonProcessingException {
+    public static String skinAPI(String username, String pirateUUid, StringBuilder signature) throws JsonProcessingException {
         String UUidJSON = getAuthorizedUUid(username);
         UUIDTex tex = objectMapper.readValue(UUidJSON, UUIDTex.class);
         String val = UUidJSON != null ? tex.getId() : null;
 
-
+        WebTexture webt;
         if (val != null){
+            String skinJSON = getAuthorizedSkin(val);
             //名字在正版 查出正版uuid 获取正版材质信息
-            WebTexture webt = objectMapper.readValue(getAuthorizedSkin(val), WebTexture.class);
-            return webt.getProperties().getValue();
-        }else {//名字不在正版 查出盗版uuid对应的材质信息
-            return getPirateSkin(pirateUUid).getProperties().getName();
+            if(skinJSON != null) webt = objectMapper.readValue(skinJSON, WebTexture.class);
+            // 否则获取盗版材质信息
+            else webt = getPirateSkin(getPrivateUUid(username));
+        }else {
+            //名字不在正版 查出盗版uuid对应的材质信息
+            webt = getPirateSkin(getPrivateUUid(username));
         }
+        signature.replace(0,signature.length(), webt.getProperties().getSignature());
+        return webt.getProperties().getValue();
     }
     /**
      * Java8中的Base64解码
@@ -57,26 +61,22 @@ public class SkinAPIUtil {
     public static String getAuthorizedUUid(String username){
         return APIGetJSON("https://api.mojang.com/users/profiles/minecraft/"+username);
     }
-
+    //获取盗版UUID
+    public static String getPrivateUUid(String username){
+        return APIGetJSON("https://littleskin.cn/api/yggdrasil/api/users/profiles/minecraft/"+username);
+    }
     //通过正版UUID获取正版皮肤
     public static String getAuthorizedSkin(String UUID){
-        return APIGetJSON("https://sessionserver.mojang.com/session/minecraft/profile/"+UUID);
+        return APIGetJSON("https://sessionserver.mojang.com/session/minecraft/profile/"+UUID + "?unsigned=false");
     }
 
     //通过盗版UUID循环访问网站获取皮肤
     public static WebTexture getPirateSkin(String UUID) throws JsonProcessingException {
-        String[] HttpList = {"https://sessionserver.mojang.com/session/minecraft/profile/"+ UUID,
-                "https://littleskin.cn/api/yggdrasil/sessionserver/session/minecraft/profile/"+UUID};
         String getSkin = null;
         WebTexture webt = null;
-        int HttpNum = 0;
-        while(getSkin == null && HttpNum < 2){
-
-            getSkin = APIGetJSON(HttpList[HttpNum]);
-            webt = objectMapper.readValue(getSkin, WebTexture.class);
-            System.out.println(webt.getProperties().getValue());
-            HttpNum++;
-        }
+        getSkin = APIGetJSON("https://littleskin.cn/api/yggdrasil/sessionserver/session/minecraft/profile/"+UUID + "?unsigned=false");
+        webt = objectMapper.readValue(getSkin, WebTexture.class);
+        System.out.println(webt.getProperties().getValue());
         return webt;
     }
 
