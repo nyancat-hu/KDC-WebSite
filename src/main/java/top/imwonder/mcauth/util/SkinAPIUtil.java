@@ -23,7 +23,7 @@ import java.nio.charset.StandardCharsets;
 public class SkinAPIUtil {
     public static ObjectMapper objectMapper = new ObjectMapper();
 
-    public static String skinAPI(String username, String pirateUUid, StringBuilder signature) throws JsonProcessingException {
+    public static String skinAPI(String username, String pirateUUid) throws JsonProcessingException {
         String UUidJSON = getAuthorizedUUid(username);
         UUIDTex tex = objectMapper.readValue(UUidJSON, UUIDTex.class);
         String val = UUidJSON != null ? tex.getId() : null;
@@ -39,7 +39,7 @@ public class SkinAPIUtil {
             //名字不在正版 查出盗版uuid对应的材质信息
             webt = getPirateSkin(getPrivateUUid(username));
         }
-        signature.replace(0,signature.length(), webt.getProperties().getSignature());
+//        signature.replace(0,signature.length(), webt.getProperties().getSignature());
         return webt.getProperties().getValue();
     }
     /**

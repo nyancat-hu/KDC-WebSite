@@ -17,6 +17,10 @@ public class TexturesInfo{
 	@JsonProperty("profileId")
 	private String profileId;
 
+	@JsonProperty("signatureRequired")
+	private boolean signatureRequired;
+
+
 	@JsonProperty("profileName")
 	private String profileName;
 
@@ -59,6 +63,7 @@ public class TexturesInfo{
 		switch(type){
 			case TexturesInfo.SKIN:
 				textures.setSKIN(new SKIN(url));
+
 				break;
 			case TexturesInfo.CAPE:
 				textures.setCAPE(new CAPE(url));
@@ -72,10 +77,12 @@ public class TexturesInfo{
 			switch(key){
 				case TexturesInfo.SKIN:
 					String url = textures.getSKIN().getUrl();
+					signatureRequired = true;
 					return StringUtils.isEmpty(url) ?
 							"http://textures.minecraft.net/texture/7868f0fa8378776ac1575e6acbdd278110b0d91cbb9ff950b8ca010474652103" : url;
 				case TexturesInfo.CAPE:
 					String url2 = textures.getCAPE().getUrl();
+					signatureRequired = true;
 					return StringUtils.isEmpty(url2) ?
 							"http://textures.minecraft.net/texture/2340c0e03dd24a11b15a8b33c2a7e9e32abb2051b2481d0ba7defd635ca7a933" : url2;
 				default:

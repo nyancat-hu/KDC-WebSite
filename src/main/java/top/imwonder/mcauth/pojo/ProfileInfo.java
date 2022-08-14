@@ -1,10 +1,13 @@
 package top.imwonder.mcauth.pojo;
 
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Base64;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import top.imwonder.mcauth.util.RSAUtil;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class ProfileInfo {
@@ -46,15 +49,20 @@ public class ProfileInfo {
         this.properties.addAll(Arrays.asList(properties));
     }
 
-    public void addProperty(String name, String[] value, boolean isSign) {
+    public void addProperty(String name, String value, boolean isSign) {
         if (this.properties == null) {
             this.properties = new ArrayList<>();
         }
         Property property = new Property();
         property.setName(name);
-        property.setValue(value[0]);
+        property.setValue(value);
         if (isSign) {
-            property.setSignature(value[1]);
+            try {
+                // 根据MC客户端的代码，这里是对编码后的value进行密钥加密
+                property.setSignature(RSAUtil.sign(value));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
         this.properties.add(property);
     }
