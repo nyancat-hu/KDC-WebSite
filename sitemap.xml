@@ -1,0 +1,19 @@
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+    <!--  Created By http://www.zhetao.com/sitemapcreator,  URLs: 4 Generated at: 2022-08-17 19:51:45  -->
+    <url>
+        <loc>http://52mcla.com:60000/</loc>
+        <priority>1.00</priority>
+    </url>
+    <url>
+        <loc>http://52mcla.com:60000/help/download</loc>
+        <priority>1.00</priority>
+    </url>
+    <url>
+        <loc>http://52mcla.com:60000/help/log</loc>
+        <priority>1.00</priority>
+    </url>
+    <url>
+        <loc>http://52mcla.com:60000/help/about</loc>
+        <priority>1.00</priority>
+    </url>
+</urlset>

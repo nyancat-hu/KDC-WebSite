@@ -1,6 +1,6 @@
 // 注意：live2d_path 参数应使用绝对路径
-const live2d_path = "http://localhost:8080/assets/";
-//const live2d_path = "/live2d-widget/";
+// const live2d_path = "http://127.0.0.1:8080/assets/";
+const live2d_path = "/assets/";
 
 // 封装异步加载资源的方法
 function loadExternalResource(url, type) {

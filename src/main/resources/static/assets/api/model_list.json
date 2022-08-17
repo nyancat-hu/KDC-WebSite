@@ -1,9 +1,9 @@
 {
     "models": [
+        "ntw",
         "k2",
-        "car",
         "ads",
-        "ntw"
+        "car"
     ],
     "messages": [
         "欢迎您的访问 ~"

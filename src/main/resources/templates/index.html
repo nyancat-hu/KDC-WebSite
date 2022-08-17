@@ -1,3 +1,87 @@
+<!--
+		正义の眼神————借于 中国Minecraft口袋妖怪服务器群组  网站守护神
+        ;:;i;i;;r;r;;;iii:i:i::ir;r;;i;;;;;;;iiirr;i;iiiiii::.,,:,,,,.,.,,:.:,,,,,,.,,,:,.,,,,,,,,,,,,:,,,,,:,,,:,,,,,,.
+        ;.:,,:,:,,,:::.,,. ....:iiii:::i:i:i:,.,,:,:,:,:,,.,
+        ;:;i;i;ii:i:iiiii:ii;ii;7r;;;;r;r;;ii;r;7;i:iii:i:i:,,,.,,,,,,,.,.,.,.,.,,,.,,,.,.,,,.,.,,,...,.......,,:.,.,,,.
+        i:i;i;ii:iiiii:i:iirii:;ri:::iii::,:::ir7Xri:i:i:i:::,.,.,.,.,.,.,...,...,.,.,.,.,.,.,.:.,.... . ... . ,.,,,.,.,
+        i:iiiiiiii;i;:iiii;r;:iii,,:i,:,....::;rXX2r::i:i:i,,.,...,.,.,.,.,.,.....,.,.....,...,.,.. ..:,iirr7:  .,,.....
+        i:iii;iii;i;iii;i;rri:::,:,i::.,.,.,:ii;7SSXi:::i:,:...,.,.,.,.,...,.,.,.....,.....,.,...,  ,r7Xr7XS22;  ..,.,..
+        ;:iii;;;;i;i;i;;;;;ii,:,:,:::.,.....::i;77XXSi:::::.,.,.,.,.,.,.,...,...,.,.,...,.,.,.... .:;rSSSXSX2Za: .,.,...
+        ;ii;i;;r;;;;iiiiiii:,,::,:::.,.,...,,iir7SXSSX;:,i,,.,.,...,.,...,.....,.,...,...,.,.... ,i;;X7X7XSZZZZX ....,..
+        ri;i;i;ii::::,:,,,,.,,,,,.,.,.,.,,,,:i;;XXXXXXXi:,,.,...,.,.,...,.....,...,...,...,..  .i;77X77r7XaZa2Z2i ....,.
+        i:::,:,:,,...,.......,...,...,..,,,::i:;7SXX7X7X;,...,.,.,.,.,.,.,.....,.,.....,.... ,:i;7XX7rr7rXXSSaaZ7  ,.,..
+        : :...,.,.,.....::::::,,,.....,.,,,:i;;;XX2SXX7XX;, . ........,.,.,.,.,.,...,.,.... :iiiXXX777XXX7XXaaaZa, .,.,.
+        . ...,...,..,,,::i::::,,,,...,,,..,:i;irr7X222XSXXX;,. .   . ......... ..,......  ,rrr72S7r7XSSSXSSSSS2aa; ..,..
+        , ,......,,,:,:,,...,.,,:,i:;i;i:,ii;r77X777X7XrXXX77;iii,,..   . .       . .   ,iX77XZZ7rXXSS22aS2SXXS2Zr  ....
+        . ...,,:,:,:::,,,::i:ii;r7r77X7X77;irSaa7;;i:iiiiii;;r777X77rr;;;;;rr;ii:i,,,:.:;X7r7Za77XXSXSX2a222XXXSZX  .,..
+        : :.:::iiiii;;;;7XX777XXSXXXXXX7XX;i7XX;ii;:iiii;;;;;;r;rr7r7rrr7r77X7X77rX7r;7r7rXXZZX7XXSS2S22a2aa2XXXZX  .,..
+        ::ii;;;r;r77XXXSSSSSXSXXXXXX7X777r;rii::iii;iii;;r;r;rrr;;;;;;;;i;;r;;;7rrrSaS7Xr7SZ8S7XSaZ0888008ZaXXXaZX ..,..
+        7;77XXXXSX2XSXSXXXXXX7X7X777X77rrii::::i;i;i;;r;rrrr777r7rr;r;;i;;iii:;rrr;7ZaXrXZ8Za77722ZZ0BWBB8aXXXS2Zr .,...
+        SSS2XSSSXXXXXX7X7X777777777Xr7;i:::i:i:i:ii;;;;rr77Xrr777rrr;;;;;;i;i;;rr7rr;SZ8ZZZ277rX77X2ZBBB08SX7SSSa; .,,..
+        SXSXXXXXX777777r7777X7X77rr;i:,,::i:i::iiiii;;rr7rXXX77rrrr;r;;;rrrrrrrr7;;;;iXZ0ZaXX7X777SaBWW08aSXXXXX2i..,...
+        X7XX7X7X777777777X77;;ii:,::,:,::iii,:,,:::;;;r77XXXrr;rr7r777;7;7rrrr;r;rrrr;irXaaZaSXX7SZ@@W008a77XXX27. .....
+        X7X7X7X7X77r7r7777ri:.,,:,::::iiiii:,.::,,:i;ir7XXX;;r7r7r7rrrr;r77;rr;irrr;rrri:raaSXX7aWM@BBB8aXr77XSS: ..,...
+        X77X7X7777r7r7r7r;:,.,,::i:::ii;;;:,,:,:,:,i;rrXXXrrr7rrr7rrrrrr;rrrr7r7r;rr;rr;ii;SSXXWMM@WBBZ27r;rrXSr  ...,..
+        XrX7X7777r7r7r7ri,.,::i,:,::ii;ii:::i::::::ir;7XX;rr7rr;;iiii;r;;r7;rrr;r;;;;r7;;iiirX8W8BM0ZaX7XX7XZ8Zr....,...
+        X77777rrr7r7rr;i,,,::i::,,:ii:...,ii:i::iiirrr7Xrr77r;ii:i::i;ir;7rrr7r7;;r;;;;r;r;;:;r77Z0a77XXXXZM0SX7,,.,....
+        Xr7r7r7r7r7rr;i:::iiiii::,:...... ;;;:::iirr7XXXXXXr;i::iiiii:ii;r7XX77r7;;rr;;;r;;i;ii;rrXXS777r;SXiiXri,:.....
+        7r77r7rr;;;;ii:,:i:i:i:i::,XWMMMMZr;;::iirrXrX7XXXr;i:::iii;:iiii;;7777Xrrrr;;;r;;iiiiiiii;7XSXSXXXSSSXXii,,,,..
+        ri;;iii:i:i::::,i:,...,::,X@020MM@0Xi,i;7rrr7r7777rii:i:ii;::,i:;iiirrXrr;7rr;7rr;;;;iiii:iirXSXXX2ZZaaX;ii::.,.
+        :,::::,:,,,:,:::,,     ..iX;ZZaWaXM8:i;r;rii;7r;i;;;iiii:ii,.:,,,ii;i;rXXXr7rr;r;r;;;;i;ii:iir7XXX2aaaSXrr;i,,..
+        :.:,:,,,,,:,,:::.     .  X;iMBB@MM@Xi;;ii::i;i;:i;;;i:iii,:XBWBa7i::ri;;77r;rrr;;;ri;;riii;iii;rX728B8ZX7r;i:,,.
+        ,,::,,,:,:,::i:,     .,.,2SrB0ZWMMXiiiii::irii::iri;;;iiiSMMBBMMMMBX:rr;;7;rr;r;;;;;;;rr;rrii;;;;77280ZS7r;;::..
+        i.:,:,,,:,,,:,,   . ..:,,;2aBMW0a:.,ii;iii;i::iirr7r7rSZMM0  .:0@MMM0777rrr;r;;;;i;;r;r;;;;;;;;;r;7XSaaSXrr;i,,
+        :.,:,:::,:::::   .. .,iiiii7XS;, .,ii;ii:i::,ii;;XXSSZWMM2  0M@MBBWMMMaS7rr;i;;ri;i;;;;;;;i;;r;;rr;7SaSX77rri:..
+        :.:,:,:::,:::.  .   .,;;;i;::...:i;ii::,:,::i:ii;rSaaBMMM:.SMMMMMWMW@BX;7;rrr;r;;i;;;;r;rr;i;;;;;;r;XX7r7rr;i..
+        :.::,:,:::::.  ... ..:irii::.::iii::,::i:iiii;;ii;7Xr2@MMWX2W@WMMMBZX::iiiii:iiii;;;iiiii;;;;;;;;r;rr7rr77rri:..
+        :.:::,:,,,i..  .....,,::i...:,:::,::::i:::i,::;i;r77ri7S8@Wa0B888aXi..:ii:i,:,::i:iii:i:ii;i::;;;i;;rr7r777rr:,
+        :,:::i::,:,.., . ..,       ,,:,,,i:iii:i:iii:;i;irr7ri,:,i;77r;;,..:iiii:i::,,,:,:,::i::,::::i;;;;;r;rrr;777;:..
+        :,i:iii::,, .,:   .    .i;7rr;i::i;iii:::,:iii;i;i;rriii;ii:iii:::;r;iiii::,,,,:::ii;ii:i:i::iiiiii;;;rrr;r;r::
+        ::i;ii::,,  . .:,.  :XSaZZSS2aaZ2X;,,:i;:,ii:i:iiiir;iiii;rr;;;r;r;;;;:i::::::,::;rr;i:::iii:i:i:iiiir;r;;;r;;:.
+        i,;i;;;ii:,...,..  ZMMM@M@@WBZBBBB02i,,,::i,:iiiii;i;ii:ii;i;r7r;i;;;ii:i::,:,:,:,iii:::::i:i:i:i:;;;;;;r;;i;;;,
+        i::ii;i;::.:::..  :MMMM@@MMMMMMMMMWM@7.,,,,..,:iiii;i;::::,:,:ii:i:;:iiiii::,:,,...,.::::i,::i:iiiiii;;r;;ii;r;:
+        S;;i;;r;:.::;i:   .2MMMB@@@MMMMWW@WWWX,.,.::i:::i:iii:iii::,,,,.::ii;iiii:i::,:,,,:,:::::,::::iiiiiiii;rri;i;;;i
+        27r;i;ii.  ..,.. .;XX0BWWW@@MMMM@MMMZX,:::,i::,i:::ii::i:,:::i:,.:::::,i::,::::::::i:i:::i:i:iiiiii;;rr7r;;;;;;i
+        ri;i;i;:.  .,  .,:rBM0WBMWWWWBB@MM@BZ;;::::,i:i:iii::::::::,:,:,,,,,,,::i:i:iii:i:::i:i:ii;i;iii;;;;7r7rr;;;;;ii
+        i:i;i;i, .,:;i.,:ii2W@BW@W0WWM@M@BZaXiir;X;rrrri;;;;iiiiii::::,::i,:,::i:i::,::::iiiii:iiii;;r;r;;irrX77rr;r;;i;
+        ;:;iii;::::,:,iii;XX20WWM@WW@WW08Z2rX;;7i;::,,:,ii;;i,::i::iiiiii:i::.:::ii:i:i:ii;iii;;;i;;;;r;r;rrr77rrrr;;;ri
+        ;ii;;r;i.. ,.,:i;XSaaZ8BW@W@B00Z2aS;rr::ii:ri;:;;;i;ii:::i:i:iii:iii::,,,i:iii:iiii;;;;r;;;;i;i;i;r77X77rr;r;r;;
+        ;:;;;;;,. ..,.iirXSZZaZZ088Z0BBZZ2S2i7S;Z7rrrrrrr;;;;:iii:iiiii:::iii;;iii;i;iiiii;;r;;i;iiiii;;;;7rX7X7Xrrr7rri
+        ii;;i;i:...,..,iiXSZSa22SZS228Z00ZSXr7;;i;i;;;;;;;;r;iiii;i;;;i;iiiii;;;;iiii;irrr;;;iiiii::i;;rr777rX77r;;X77;;
+        ;:;i;i;::.. .:::ii7S8BMMMMMBB2a22Z27ar77;7rrXrrii;r;r77r;i;iii;iii;;r;;;;i;i;;;;;iiii:iiii;i;rr;rr7777XrrrX7777;
+        ;;;;i;ii...,::,:,..aWBBW@MMMMMMW@@ZS;;i;;r;i,i:::ii;r7r7r;i;i;;;;r;r;iii:ii;i;;;ii::,::i:iiiiii;i;r777r;ir77r7r;
+        7;7;;rri:.,.:,:,,..78B0808BBWW@@MMMWBXri:,:ii;XXZZ0BB8X;7r;i;ii;;;r;;:::;i;i;;;ii::,::i:::::ii;i;;7rr;rrrr7rrr;;
+        ..,:,::i,..:.,.,::::raa0BBBWBB0WWWWMMMMMa2WMMMMMMMBW827r;r;;;;;;;;;i:ii;iii;ii:i::,iiiiiiiiii;;r77r777r77X7r;rrr
+        ..,:,::i,..,,,.,:i:::i:;X8888W080B08BBWMMMMBWBBB8ZaSXXr;;i;;i;;r;i::iii;;;:::iii:i:iiiiiiiiii;;r;rr7XX7rr777;rrr;
+        .  . . . ,,,,:,,.,::::i7Xa22S2SSS2S22800ZaXSSSXX7SX7i;iiiii;;;;;;;iiiiiiiii;i;i;iiiii;i;;;rr;;;r77r7777X7XXX7Xrr
+        . ....... ,,:.,.,,i:i:iirXa2XXSSXrr;rXXXr;X7XXX77rriiiii;i;;;;;;;;;;iiii;i;i;iii;i;iiiii;;r;;;Xrr;rrXXX7X7XXXX7r
+        . .........,...,,::i:i::,irXX7rr7X;;;rr7;rr7r;i;iiiiiiii;;;r;;;;;;;;iii;ii:::iiiiii;iii;;r;;r77X77rr;rrXXXXS7X77
+        , ,.........:,::::i:ii::i,,ii:i:i;;i;;;i;iiiiii:ii;i;i;;;i;i;;;;rrr;;;;i;ii::i;iii;i;;rr7;;r7r77X77r7777XXSXX7Xr
+        . .,.. . ...,:,::::i:i:i::,,,iiii;ii:ii;i;ir;r;;;r;r;rrr;r;;ir;ri;;;;iii::::::i;i;iiirr7rrr7r77777r7XXXXXX7X777r
+        , ,.........,:,,,,:,i:::ii;:::ii;;r;;;rrr;;;;;r;rr7r7rr;r;r;r;riiiiiiiiii:iii:i:ii;;r;;;r;rrX7XrrrXXXXXSXXX7X7r;
+        . .,...... .,:::,::::i:::ii;iiiii;iiiiir;;;r;r;;;r;;;r;7r;;;;;;;i::i:i:ii;i;;;;;ii;;;;;r;7rrr7r77XSSXXXXXX77r7r7
+        : ,.,.,.....,,iii:i:::i:iiiiii;iiiiiii;rr;ii;r7;;;;;r;;;r;;;;iii;iii::::ii;i;;r;;;;;;;;;;r7r77X7XXSS2SSXXXX7X77r
+        ,.,,.,.,.,.,,:iiii:i:i:::iiii;i;i;i;iii;rri;i;;7;;;;;r;;;ri;i;:::::iiii;:iii;r;;ir;rr;i;;rrr;r7X7XXXXXXXXXrr;rrr
+        :.,.,.,.,.,,::iiiii:i:i:::ii;iii;;;;r;;;;r;;r;;;r;;;;;r;rrriiiii::i:;iii;i;;;iii;;rrr;7r7;;;r77XXXX7XXX77;;;777;
+        :.,,.,.,.,,,:::iiii;i;ii:i:ii;i;i;i;;;;;ir;;;r;;;r;;;rrr;rrriiiii;iii;i;;rr7;ii;i;;iiii;;rrr7X7X777XXX7ri;;7r;;i
+        ,.,,:,,.,.,,::::i:ii;i;;;iiiiiii;i;ii;;i;ir;;;;;7r;ir;rrr;;;r;;;ri;;i;r;;;ii;iii;i;i;i;;rr77XXX7XXXXX7r;rrr;;i;i
+        :.:,,,,:,,,,,i,i:::iiii;;;i;iiiiiii;iii;;;;;i;irrr;;;;;;ir;;;;rrr7r7rrrr;ri;i;i;rr;;;;;r;rr;;;;rr777rrr77r;;i;ii
+        :.::,,,,:,:,:,::i:i:iiii;i;;r;;iiiii;iiiiir;;;;;;;rr;;7;rrrrrr7rX77rri;i;iii;;X7r;;;;;;rr;;;r;rr7;;;;iiiiiii;iii
+        ,.::,,,,.,,:,::::::i:i:iiii;;rrr;;ir;;;;i;;rrr;r;;r7;;r777r7777X7rrr;;i;7;;r;;i;ii:i;rir;7rXXSSX;iiiiiii:ii;iiii
+        :.:,,,:::.,.:,:,::::::::i:ii;;rrXX77777rrr7X77XX77X7777r7r777rrr;;riii;;;;i:ii;i;;;i;i;;rr7;;;i:ii;;;;;i;;;iii;i
+        :,,,,:,:,,.,,,,,::,::iiiiiiiii;;r77X7X77777XXXXXXX7X7777rrr7r;;;iiiiiiiiii:iir;;i;;;i;i;;;;;:::iiiiiii:i:::i:i::
+        :.:::::::,,,,,:,::::::iiiiii;;ii;;rr7rr77r7rX7X7X7X7777;r;;iiiiii:ii;;7;i:;;;;;ii:;;riii;ii:::::i:i:i:::i:i:i:i:
+        :,::::::,,.,,,,,,::i:i:::ii;;;i;;;;;rr;7rr;ri;;rrr;;rr;r;iiii;ii:iirr7r;i;;;;i:iiii;iiiiii:iii:i:::iiiiiiiiii;ii
+        i,::::::,...,,,.,,:,::i:iii:ii;;r;r;;;rr7r777r7r;;;;;;;;i:::;i;i;;;;;iii;;rii:iiiii:::i:::iii,::::i::,:,i:i:i::,
+        :,:::i:i,,.,.,.,,::::::iiii;i;;;rr;;;;;r;r7Xrr77rrr7;;;rr7;;i;ii;;ii:iiii;i;;X7;iiiiii::ii::,::iii:i:::i::,,:::i
+        i,::::i:i:,.,,,,:,:::,::i:ii;;;i;;r;r;;;r;rrr;;;r;;;ri;;r;riii;ii:i:i:iiiii:ir7rr;iii:iii:::::;ii:ii;ii:i::,::i:
+        :,:i:::i::,,.,,,,:::,::i:ii;i;i;i;r7r;;;;r;;;;;r;;iii;i::iiii;;r;;;;i;;;iiiii:ii:iiii;:::i:::ii;:i;;i;ii:iiii;ii
+        ;:i:iiiii,:,:,:,:::,::iii:ii;i;iii;;7r7rrrr;;rr;;r7r;;;i;iii;iri;;;i;;;i;ii:;ii:,,;XX;riiiiiiii:::i:i,::ii;:iiii
+        i:iiiiii::,::::::::i:iii:::iiii;i;;rr77r;rr7r7r7;ii;ir;;ii;;i;iii;i;r7;;ii:;r;i;i;7Xrr;;ii,:::,,:::::::::::i:iii
+        ;:i:i:,,,,:,::::::i:i:iii:ii;i;i;;rr7r;;r;rrX77rr;;;;iiir;r;;irrii;iiii::iii:,:::i:.,,iiiii,,:::i::,::::,,i:ii;i
+        i..,.      . . ..,,,,:,:::,::iiiii;;;i:i:i:ii;;ii;;i:i:iiii;;i:;:::i,:i;i;i:.:::.,.,,:,,:,,,.,.,,:,:,:,:::,,,::i
+		你还在看！？我从未见过有如此厚颜无耻之人！
+		-->
 <!DOCTYPE html>
 <html>
 
@@ -6,15 +90,15 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Dmego Home">
-    <meta name="keywords" content="Dmego,Homepage">
-    <meta name="author" content="Dmego">
-    <title>Dmego Home</title>
-    <link rel="stylesheet" type="text/css" href="https://unpkg.com/dmego-home-page/assets/css/onlinewebfonts.css"/>
-    <link rel="stylesheet" type="text/css" href="https://unpkg.com/dmego-home-page/assets/css/vno.css">
-    <link rel="stylesheet" type="text/css" href="https://unpkg.com/dmego-home-page/assets/css/iconfont.css">
-    <link rel="apple-touch-icon" href="https://unpkg.com/dmego-home-page/apple-touch-icon.png">
-    <link rel="icon" href="http://52mcla.com:60000/assets/img/favicon.ico">
+    <meta name="description" content="口袋村">
+    <meta name="keywords" content="口袋村,口袋妖怪,我的世界神奇宝贝，我的世界服务器，我的世界口袋妖怪服务器，我的世界神奇宝贝服务器，我的时候神秘时代，植物魔法，星系服务器，我的世界工业服务器">
+    <meta name="author" content="ice_light">
+    <title>口袋村Minecraft服务器群组</title>
+    <link rel="stylesheet" type="text/css" href="/assets/css/onlinewebfonts.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/css/vno.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/iconfont.css">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="icon" href="/assets/img/favicon.ico">
 
     <link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css">
 
@@ -31,8 +115,8 @@
             <div class="panel-main__inner panel-inverted">
                 <div class="panel-main__content">
                     <div class="ih-item circle effect right_to_left">
-                        <a href="#" title="" class="blog-button">
-                            <div class="img"><img src="https://unpkg.com/dmego-home-page/assets/img/logo3.jpg" alt="img" class="js-avatar iUp profilepic"></div>
+                        <a href="https://jq.qq.com/?_wv=1027&k=YDEVgYBF" title="" class="blog-button">
+                            <div class="img"><img src="/assets/img/logo3.jpg" alt="img" class="js-avatar iUp profilepic"></div>
                             <div class="info iUp">
                                 <div class="info-back">
                                     <h2>
@@ -42,7 +126,7 @@
                                     </h2>
                                     <p>
 
-                                            2022 · 自律
+                                            2022 · 继续革命
 
                                     </p>
                                 </div>
@@ -50,9 +134,9 @@
                         </a>
                     </div>
                     <h1 class="panel-cover__title panel-title iUp">
-                        <a href="#" title="Dmego Home">Dmego</a>
+                        <a href="#" title="口袋村">Pokemon</a>
                     </h1>
-                    <p class="panel-cover__subtitle panel-subtitle iUp">Code Create Life</p>
+                    <p class="panel-cover__subtitle panel-subtitle iUp">中国Minecraft服务器群组官方网站</p>
                     <hr class="panel-cover__divider iUp" />
                     <p id="description" class="panel-cover__description iUp">如何得与凉风约, 不共尘沙一并来!
                         <br/>
@@ -63,51 +147,51 @@
                             <nav class="cover-navigation cover-navigation--primary">
                                 <ul class="navigation">
                                     <li class="navigation__item">
-                                        <a href="/" class="blog-button">首页</a>
+                                        <a href="/help/download" class="blog-button">下载游戏</a>
                                     </li>
                                     <li class="navigation__item">
-                                        <a href="https://dmego.cn" class="blog-button" target="_blank">博客</a>
+                                        <a href="https://jq.qq.com/?_wv=1027&k=YDEVgYBF" class="blog-button" target="_blank">加QQ群</a>
                                     </li>
                                     <li class="navigation__item">
-                                        <a href="https://r.dmego.cn" class="blog-button" target="_blank">简历</a>
+                                        <a href="/help/log" class="blog-button" target="_blank">更新日志</a>
                                     </li>
                                     <li class="navigation__item">
-                                        <a href="https://dmego.cn/about/" class="blog-button" target="_blank">关于</a>
+                                        <a href="help/about" class="blog-button" target="_blank">关于我们</a>
                                     </li>
                                 </ul>
                             </nav>
                         </div>
-                        <div class="iUp">
-                            <nav class="cover-navigation navigation--social">
-                                <ul class="navigation">
-                                    <li class="navigation__item">
-                                        <a href="https://github.com/dmego/" title="github" target="_blank">
-                                            <i class='social iconfont icon-github'></i>
-                                            <span class="label">github</span>
-                                        </a>
-                                    </li>
-                                    <li class="navigation__item">
-                                        <a href="http://www.cnblogs.com/dmego/" title="cnblogs" target="_blank">
-                                            <i class='social iconfont icon-cnblogs'></i>
-                                            <span class="label">cnblogs</span>
-                                        </a>
-                                    </li>
+<!--                        <div class="iUp">-->
+<!--                            <nav class="cover-navigation navigation&#45;&#45;social">-->
+<!--                                <ul class="navigation">-->
+<!--                                    <li class="navigation__item">-->
+<!--                                        <a href="https://github.com/dmego/" title="github" target="_blank">-->
+<!--                                            <i class='social iconfont icon-github'></i>-->
+<!--                                            <span class="label">github</span>-->
+<!--                                        </a>-->
+<!--                                    </li>-->
+<!--                                    <li class="navigation__item">-->
+<!--                                        <a href="http://www.cnblogs.com/dmego/" title="cnblogs" target="_blank">-->
+<!--                                            <i class='social iconfont icon-cnblogs'></i>-->
+<!--                                            <span class="label">cnblogs</span>-->
+<!--                                        </a>-->
+<!--                                    </li>-->
 
-                                    <li class="navigation__item">
-                                        <a href="https://www.zhihu.com/people/dmego/" title="zhihu" target="_blank">
-                                            <i class='social iconfont icon-zhihu'></i>
-                                            <span class="label">zhihu</span>
-                                        </a>
-                                    </li>
-                                    <li class="navigation__item">
-                                        <a href="mailto:dmeago@gmail.com" title="email">
-                                            <i class='social iconfont icon-email'></i>
-                                            <span class="label">email</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </nav>
-                        </div>
+<!--                                    <li class="navigation__item">-->
+<!--                                        <a href="https://www.zhihu.com/people/dmego/" title="zhihu" target="_blank">-->
+<!--                                            <i class='social iconfont icon-zhihu'></i>-->
+<!--                                            <span class="label">zhihu</span>-->
+<!--                                        </a>-->
+<!--                                    </li>-->
+<!--                                    <li class="navigation__item">-->
+<!--                                        <a href="mailto:dmeago@gmail.com" title="email">-->
+<!--                                            <i class='social iconfont icon-email'></i>-->
+<!--                                            <span class="label">email</span>-->
+<!--                                        </a>-->
+<!--                                    </li>-->
+<!--                                </ul>-->
+<!--                            </nav>-->
+<!--                        </div>-->
                     </div>
                 </div>
             </div>
@@ -117,16 +201,16 @@
             <a class="icp" href="http://www.miitbeian.gov.cn/publish/query/indexFirst.action" target="_blank">XXX</a>
             <a class="gwab" href="http://www.beian.gov.cn/portal/recordQuery" target="_blank">XXX</a>
         </div> -->
-        <div class="remark iUp">
-            <p class="power">Powered By
-                <a href="https://github.com/features/actions" target="_blank"> GitHub Actions </a> And
-                <a href="https://hitokoto.cn/" target="_blank"> Hitokoto </a>
-            </p>
-        </div>
+<!--        <div class="remark iUp">-->
+<!--            <p class="power">Powered By-->
+<!--                <a href="https://github.com/features/actions" target="_blank"> GitHub Actions </a> And-->
+<!--                <a href="https://hitokoto.cn/" target="_blank"> Hitokoto </a>-->
+<!--            </p>-->
+<!--        </div>-->
     </header>
 
-    <script type="text/javascript" src="https://unpkg.com/dmego-home-page/assets/js/jquery.min.js"></script>
-    <script type="text/javascript" src="https://unpkg.com/dmego-home-page/assets/js/main.js"></script>
+    <script type="text/javascript" src="/assets/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/assets/js/main.js"></script>
     <script type="text/javascript" src="./assets/json/images.json?cb=getBingImages"></script>
 
 </body>
