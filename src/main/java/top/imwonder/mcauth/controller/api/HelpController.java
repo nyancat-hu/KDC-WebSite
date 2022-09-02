@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.method.annotation.StreamingResponseBody;
 import top.imwonder.mcauth.config.ApplicationConfig;
 import top.imwonder.mcauth.pojo.responsebody.DownloadBean;
+import top.imwonder.util.FileOperatingUtil;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
@@ -51,14 +52,25 @@ public class HelpController {
                 });
     }
 
-    @GetMapping("/log")
-    public String getLog() {
-        return "updateLog";
+//    @GetMapping("/log")
+//    public String getLog() {
+//        return "updateLog";
+//    }
+//
+//
+//    @GetMapping("/about")
+//    public String getAbout() {
+//        return "about";
+//    }
+
+    @ResponseBody
+    @GetMapping(value = "/modlist" , produces = "text/html;charset=UTF-8")
+    public String getModList() throws IOException {
+        String resourceDir = config.getResourceDir();
+        File modlistFile = new File(resourceDir, "modlist.txt");
+        String modlist = FileOperatingUtil.readForString(modlistFile);
+        return modlist;
     }
 
 
-    @GetMapping("/about")
-    public String getAbout() {
-        return "about";
-    }
 }

@@ -38,6 +38,7 @@ public class WebConfig implements WebMvcConfigurer {
         registry.addResourceHandler("/robots.txt").addResourceLocations("classpath:/static/assets/robots.txt");
         registry.addResourceHandler("/favicon.ico").addResourceLocations("classpath:/static/assets/img/favicon.ico");
         registry.addResourceHandler("/sitemap.xml").addResourceLocations("file:./sitemap.xml");
+        registry.addResourceHandler("/logAbout/**").addResourceLocations("file:./LogAbout/");
     }
 
     // 枚举转换器

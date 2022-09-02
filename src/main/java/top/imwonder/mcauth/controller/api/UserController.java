@@ -190,6 +190,7 @@ public class UserController {
         }
         else
         {
+            email.sentEmail(ema);
             return userInfoService.loadUserByEmail(ema).getUsername();
         }
     }
