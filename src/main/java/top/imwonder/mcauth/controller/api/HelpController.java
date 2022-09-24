@@ -2,24 +2,45 @@ package top.imwonder.mcauth.controller.api;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.StreamUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.method.annotation.StreamingResponseBody;
 import top.imwonder.mcauth.config.ApplicationConfig;
+import top.imwonder.mcauth.pojo.requestbody.ForgetPasswordReq;
+import top.imwonder.mcauth.pojo.requestbody.RegisterReq;
 import top.imwonder.mcauth.pojo.responsebody.DownloadBean;
+import top.imwonder.mcauth.services.UserInfoService;
+import top.imwonder.mcauth.services.impl.ChangePasswordImpl;
+import top.imwonder.mcauth.services.impl.EmailImpl;
 import top.imwonder.util.FileOperatingUtil;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+import javax.websocket.Session;
 import java.io.*;
 import java.nio.charset.StandardCharsets;
-import java.util.Base64;
+import java.util.*;
 
+@CrossOrigin
 @Controller
 @RequestMapping("/help")
 public class HelpController {
 
     @Autowired
     private ApplicationConfig config;
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
+    @Autowired
+    private EmailImpl email;
+    @Autowired
+    private ChangePasswordImpl changePassword;
+    private LinkedHashMap<String,String> codeMap = new LinkedHashMap<>();
+    @Autowired
+    private UserInfoService userInfoService;
+
 
     @GetMapping("/status")
     @ResponseStatus(code = HttpStatus.OK, reason = "Successful!")
@@ -72,5 +93,62 @@ public class HelpController {
         return modlist;
     }
 
+    //重新设置密码
+    @ResponseBody
+    @PostMapping("/resetPassword")
+    public int resetPassword(@RequestBody ForgetPasswordReq req)  {
+        req.setPassword(passwordEncoder.encode(req.getPassword()));
+        return changePassword.changePassword(req);
+    }
+
+    //发送验证码并验证邮箱
+    @ResponseBody
+    @PostMapping("/email")
+    public String  email(@RequestBody RegisterReq req){
+        if(userInfoService.loadUserByEmail(req.getEmail())!=null)
+        {
+            String code= email.sentEmail(req.getEmail());
+            String uuid = String.valueOf(UUID.randomUUID());
+            codeMap.put(uuid,code);
+            codeMap.put(code,req.getEmail());
+            if(codeMap.size()>1000){
+                int num = 0;
+                Iterator<Map.Entry<String, String>> iterator = codeMap.entrySet().iterator();
+                while(num<500){
+                    iterator.remove();
+                    num+=1;
+                }
+            }
+            return uuid;
+        }
+        else
+        {
+
+            return "no";
+        }
+    }
+    @ResponseBody
+    @PostMapping("/checkCode")
+    public String checkCode(@RequestBody RegisterReq req) {
+        //防止前后邮箱不一样
+        if (codeMap.get(req.getUuid()).equals(req.getCode())&&codeMap.get(req.getCode()).equals(req.getEmail())) {
+            codeMap.remove(req.getUuid());
+            codeMap.remove(req.getCode());
+            return "yes"; //重定向
+        }
+        return "no";
+    }
+
+
+    @GetMapping("/second")
+    public String returnSecond( ) {
+        return "second";
+    }
+
+    //入口
+    @GetMapping("/forgetPassword")
+    public String returnFirst( ) {
+        return "first";
+    }
 
 }
